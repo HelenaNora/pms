@@ -29,6 +29,22 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/code', function () {
+    return Inertia::render('Code');
+})->middleware(['auth', 'verified'])->name('code');
+
+Route::get('/project-pages', function () {
+    return Inertia::render('Project');
+})->middleware(['auth', 'verified'])->name('project');
+
+Route::get('/shortcut', function () {
+    return Inertia::render('Shortcut');
+})->middleware(['auth', 'verified'])->name('shortcut');
+
+Route::get('/settings', function () {
+    return Inertia::render('Settings');
+})->middleware(['auth', 'verified'])->name('settings');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
