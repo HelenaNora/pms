@@ -4,6 +4,9 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDashboard,faCode,faProjectDiagram ,faCut,faCog} from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -12,7 +15,7 @@ export default function Authenticated({ user, header, children }) {
 
 
         <div className='min-h-screen flex'>
-            <nav className='bg-gray-100  md:w-1/4 sm:w-full'>
+            <nav className='bg-gray-100  md:w-1/5 sm:w-full'>
                 <div className=''>
                     <div className="flex justify-between   p-4">
                         <Link href="/">
@@ -56,34 +59,39 @@ export default function Authenticated({ user, header, children }) {
                 </div>
                 <div className="mt-16 border-b-2 md:block sm:hidden">
                     <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <FontAwesomeIcon icon={faDashboard} className="icon text-gray-500 me-2" />
                         Board
                     </NavLink>
                 </div>
                 <div className=" border-b-2 md:block sm:hidden">
                     <NavLink href={route('code')} active={route().current('code')}>
+                        <FontAwesomeIcon icon={faCode} className="icon text-gray-500 me-2" />
                         Code
                     </NavLink>
                 </div>
                 <div className=" border-b-2 md:block sm:hidden">
                     <NavLink href={route('project')} active={route().current('project')}>
+                        <FontAwesomeIcon icon={faProjectDiagram} className="icon text-gray-500 me-2" />
                         Project Pages
                     </NavLink>
                 </div>
                 <div className=" border-b-2 md:block sm:hidden">
                     <NavLink href={route('shortcut')} active={route().current('shortcut')}>
+                        <FontAwesomeIcon icon={faCut} className="icon text-gray-500 me-2" />
                         Add Shortcut
                     </NavLink>
                 </div>
                 <div className=" border-b-2 md:block sm:hidden">
                     <NavLink href={route('settings')} active={route().current('settings')}>
+                        <FontAwesomeIcon icon={faCog} className="icon text-gray-500 me-2" />
                         Project Settings
                     </NavLink>
                 </div>
             </nav>
-            <div className='md:w-3/4 sm:w-full'>
+            <div className='md:w-4/5 sm:w-full p-10'>
                 {header && (
-                <header className="bg-white shadow">
-                    <div className="py-6 px-4 sm:px-6 lg:px-8">{header}</div>
+                <header className="bg-white">
+                    <div className="py-3">{header}</div>
                 </header>
                 )}
                 <main>{children}</main>
